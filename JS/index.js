@@ -27,6 +27,21 @@ quitar.addEventListener("click",()=>{
     localStorage.clear();
 })
 
+function borrarUsuario(){
+  let user = JSON.parse(localStorage.getItem("Usuarios"));
+ for (i=0; i<user.length;i++) {
+   let name = document.getElementById("eliminarUser").value;
+   if (name === user[i].name) 
+    user.pop(i)
+ }
+ localStorage.setItem("Usuarios", JSON.stringify(user))
+}; 
+
+document.getElementById("brUsuario").onclick = () => {
+  borrarUsuario();
+};
+
+
 function escribirDatos() {
     let data = JSON.parse(localStorage.getItem("Usuarios"));
     console.log(data);
